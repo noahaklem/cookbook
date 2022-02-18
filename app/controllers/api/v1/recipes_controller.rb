@@ -1,2 +1,4 @@
-class RecipesController < ApplicationController
+
+class Api::V1::RecipesController < ApplicationController
+
 end
