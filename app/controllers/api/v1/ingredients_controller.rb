@@ -1,13 +1,13 @@
 class Api::V1::IngredientsController < ApplicationController
 
   def index
-    render json: Ingredient.all
+    render json: IngredientSerializer.new(Ingredient.all)
   end
 
   def create
     ingredient = Ingredient.new(ingredient_params)
     if ingredient.save
-      render json: ingredient
+      render json: IngredientSerializer.new(ingredient)
     else
       render plain: "uh oh..."
     end
