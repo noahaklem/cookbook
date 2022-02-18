@@ -5,7 +5,12 @@ class Api::V1::IngredientsController < ApplicationController
   end
 
   def create
-    Ingredient.new(ingredient_params)
+    ingredient = Ingredient.new(ingredient_params)
+    if ingredient.save
+      render json: ingredient
+    else
+      render plain: "uh oh..."
+    end
   end
 
   private

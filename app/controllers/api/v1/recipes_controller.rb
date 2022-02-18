@@ -4,7 +4,12 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
-    Recipe.new(recipe_params)
+    recipe = Recipe.new(recipe_params)
+    if recipe.save
+      render json: recipe, status: :accepted
+    else
+      render plain: "uh oh..."
+    end
   end
 
   private
