@@ -12,6 +12,10 @@ class Api::V1::RecipesController < ApplicationController
     end
   end
 
+  def update
+
+  end
+
   private
 
   def recipe_params
