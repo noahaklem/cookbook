@@ -13,7 +13,14 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def update
+    recipe = Recipe.find(params[:id])
+    recipe.update(recipe_params)
+    render json: RecipeSerializer.new(recipe), status: :accepted
+  end
 
+  def destroy
+    Recipe.find(params[:id]).destroy
+    render json: RecipeSerializer.new(Recipe.all), status: :accepted
   end
 
   private
