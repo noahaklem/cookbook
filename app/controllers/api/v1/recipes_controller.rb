@@ -6,7 +6,7 @@ class Api::V1::RecipesController < ApplicationController
   def create
     recipe = Recipe.new(recipe_params)
     if recipe.save
-      render json: RecipeSerializer.new(recipe), status: :accepted
+      render json: RecipeSerializer.new(Recipe.all), status: :accepted
     else
       render json: {status: "error", message: recipe.errors.full_messages }
     end
