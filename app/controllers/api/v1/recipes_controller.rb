@@ -8,7 +8,7 @@ class Api::V1::RecipesController < ApplicationController
     if recipe.save
       render json: RecipeSerializer.new(recipe), status: :accepted
     else
-      render plain: "uh oh..."
+      render json: {status: "error", message: recipe.errors.full_messages }
     end
   end
 

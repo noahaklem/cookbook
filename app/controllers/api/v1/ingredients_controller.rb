@@ -9,7 +9,7 @@ class Api::V1::IngredientsController < ApplicationController
     if ingredient.save
       render json: IngredientSerializer.new(ingredient)
     else
-      render plain: "uh oh..."
+      render json: {status: "error", message: ingredient.errors.full_messages }
     end
   end
 
