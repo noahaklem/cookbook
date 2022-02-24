@@ -7,10 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
- 4.times do 
+ 7.times do 
   name = Faker::Food.dish
   cook_time = [10,20,40,15,25].sample
-  Recipe.create(name: name, cook_time: cook_time)
+  made = false
+  Recipe.create(name: name, cook_time: cook_time, made: made)
  end
 
  10.times do
